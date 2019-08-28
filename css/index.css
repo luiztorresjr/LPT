@@ -1,14 +1,74 @@
-/* Optional: Makes the sample page fill the window. */
 html, body 
 {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: Helvetica, sans-serif;
+    font-size: 1em;  
+}
+#titulo_site{
+    margin-top: 2em;
+}
+.jumbotron{
+    height:5%;
+    text-align: center;
+    margin: 1em;
+}
+h1{
+    color: green;
 }
 
 #map 
 {
     height: 20em;
 }
+#simbolo{
+    height: 5em;
+}
+#img_iphone{
+	height: 1.5em;
+	margin-right: 0.5em;
+}
+#img_android{
+	height: 1.5em;
+	margin-left: 0.8em;
+	margin-right: 0.5em;
+}
+#etiqueta{
+    height: 25%;
+}
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
 
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.nav-link{
+  transition: 0.4s;
+  color: #000000;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+.nav-link:hover {
+  background-color: #483D8B;
+  color: #FFFFFF;
+  padding: 0.8em 0.8em;
+}
 

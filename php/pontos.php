@@ -13,7 +13,7 @@ function parseToXML($htmlStr){
 $sql = 'SELECT * FROM markers';
 
 
-header('Content-type: text/xml; charset=ISO-8859-1');
+header('Content-type: text/xml; charset="utf-8"');
 
 // Start XML file, echo parent node
 echo '<markers>';
