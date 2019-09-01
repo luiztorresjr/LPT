@@ -1,9 +1,7 @@
 html, body 
 {
     height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: sans-serif;
     font-size: 1em;  
 }
 #titulo_site{
@@ -39,7 +37,6 @@ h1{
 }
 div.gallery {
   margin: 5px;
-  border: 1px solid #ccc;
   float: left;
   width: 180px;
 }
@@ -67,6 +64,12 @@ div.desc {
   margin: 0 10px;
 }
 .nav-link:hover {
+  background-color: #483D8B;
+  color: #FFFFFF;
+  padding: 0.8em 0.8em;
+}
+
+.nav-link:active {
   background-color: #483D8B;
   color: #FFFFFF;
   padding: 0.8em 0.8em;

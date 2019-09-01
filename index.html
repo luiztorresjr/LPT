@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<!-- open maps api if want to use 
-		<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-		<script src="js/mapa.js" type="text/javascript"></script>
-		-->
-		<!-- Required meta tags -->
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	    <!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!--build:css css/main.min.css-->
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<!-- endbuild -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 
+    
 		<title font-weight-bold>Trilhas Literárias de Hortolândia</title>
 	</head>
 	<body>		
@@ -24,7 +21,7 @@
 	    		<span class="navbar-toggler-icon"></span>
 	  			</button>
 				<div class="collapse navbar-collapse justify-content-center" id="menu">
-				<a class="nav-link" href="#titulo_site" title="home">
+				<a class="nav-link active" href="#titulo_site" title="home">
 					Mapa
 				</a>
 				<a class="nav-link" href="./html/sobre.html" title="sobre">
@@ -53,7 +50,7 @@
 				<article>
 				Trilhas literárias de Hortolândia é um projeto que tem com objetivo
 			 	atraves de cartazes com Qr code fornecer a população uma biblioteca atraves de seus smartphones e internet móvel para realizar download de livros de Domínio Público.
-			 	<p>Neste site você encotra os sites de onde são tirados os livros e os locais onde poderá encontrar os cartazes.</p>
+			 	<p>Neste site você encontra os sites de onde são tirados os livros e os locais onde poderá encontrar os cartazes.</p>
 
 			</article>
 				<h2>O mapa</h2>			
@@ -73,14 +70,16 @@
 				<div class="row">	
 					<div class="col">
 						<figure class="figure-img img-fluid rounded">
-							<a href="http://hto.ifsp.edu.br/portal/" title="site do IFSP campus hortolandia"><img src="images/logo_ifsp_2016.png" id="simbolo" class="img-fluid" alt="IFSP Hortolândia"></a>
+							<a href="http://hto.ifsp.edu.br/portal/" title="site do IFSP campus hortolandia"><img src="images/logo_ifsp_2016.png" id="simbolo" class="img-fluid" alt="IFSP Hortolândia">
 							<figcaption class="figure-caption text-left">IFSP</figcaption>
+							</a>
 						</figure>
 					</div>
 					<div class="col">
 						<figure class="figure-img img-fluid rounded">
-						<a href="http://www2.hortolandia.sp.gov.br/" title="Prefeitura de hortolândia"><img src="images/600px-Brasao_Hortolandia_SaoPaulo_Brasil_v2.svg.png" id="simbolo" class="img-fluid" alt=""></a>
+						<a href="http://www2.hortolandia.sp.gov.br/" title="Prefeitura de hortolândia"><img src="images/600px-Brasao_Hortolandia_SaoPaulo_Brasil_v2.svg.png" id="simbolo" class="img-fluid" alt="">
 						<figcaption class="figure-caption text-left">Prefeitura de Hortolândia</figcaption>
+						</a>
 					</figure>
 					</div>
 				</div>
@@ -92,12 +91,12 @@
 				<script src="js/jquery.js"></script>
 			<!-- endbuild -->
 
-			<!-- Optional JavaScript -->
-		    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-		</div>
-	</div>
-	</body>
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</div>
+</div>
+  </body>
 </html>
