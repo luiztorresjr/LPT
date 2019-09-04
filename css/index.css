@@ -1,19 +1,32 @@
 html, body 
 {
     height: 100%;
-    font-family: sans-serif;
-    font-size: 1em;  
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2em;  
+    word-wrap: break-word;
+    text-align: justify;
+    text-justify: inter-word;
+    
 }
-#titulo_site{
-    margin-top: 2em;
+#titulo{
+    margin-top:0.5em;
+    color:red;    
 }
+
 .jumbotron{
-    height:5%;
-    text-align: center;
-    margin: 1em;
-}
-h1{
-    color: green;
+  text-align: center;
+  border:   0.5em double black;
+  padding: 1.5em;
+  background: url(../images/book2.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right; 
+    }
+
+nav{
+  background-color: #49b84c;
 }
 
 #map 
@@ -24,19 +37,20 @@ h1{
     height: 5em;
 }
 #img_iphone{
-	height: 1.5em;
-	margin-right: 0.5em;
+  height: 1.5em;
+  margin-right: 0.5em;
 }
 #img_android{
-	height: 1.5em;
-	margin-left: 0.8em;
-	margin-right: 0.5em;
+  height: 1.5em;
+  margin-left: 0.8em;
+  margin-right: 0.5em;
 }
 #etiqueta{
     height: 25%;
 }
 div.gallery {
   margin: 5px;
+  border: 1px solid #ccc;
   float: left;
   width: 180px;
 }
@@ -55,6 +69,7 @@ div.desc {
   text-align: center;
 }
 
+
 .nav-link{
   transition: 0.4s;
   color: #000000;
@@ -64,14 +79,16 @@ div.desc {
   margin: 0 10px;
 }
 .nav-link:hover {
-  background-color: #483D8B;
+  background-color: rgb(59, 45, 155);
   color: #FFFFFF;
   padding: 0.8em 0.8em;
 }
 
-.nav-link:active {
-  background-color: #483D8B;
-  color: #FFFFFF;
-  padding: 0.8em 0.8em;
+.nav-link:active{
+  transition: 0.4s;
+  color: #000000;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 0 10px;
 }
-

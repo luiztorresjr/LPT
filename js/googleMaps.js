@@ -24,7 +24,6 @@ function initMap() {
             strong.textContent = name
             infowincontent.appendChild(strong);
             infowincontent.appendChild(document.createElement('br'));
-
             var text = document.createElement('text');
             text.textContent = address
             infowincontent.appendChild(text);
