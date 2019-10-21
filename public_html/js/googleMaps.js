@@ -24,14 +24,13 @@ function initMap() {
             strong.textContent = name
             infowincontent.appendChild(strong);
             infowincontent.appendChild(document.createElement('br'));
-            var markerImage = '../images/map_icon.png';
+
             var text = document.createElement('text');
             text.textContent = address
             infowincontent.appendChild(text);
             var marker = new google.maps.Marker({
-                position: point,
                 map: map,
-                icon: markerImage
+                position: point
             });
             marker.addListener('click', function(){
                 infoWindow.setContent(infowincontent);

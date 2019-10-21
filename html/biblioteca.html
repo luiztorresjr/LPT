@@ -4,6 +4,7 @@
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> 
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -22,7 +23,7 @@
 	  			</button>
 				<div class="collapse navbar-collapse justify-content-center" id="menu">
 				<a class="nav-link active" href="../index.html" title="home">
-					HOME
+					Home
 				</a>
 				<a class="nav-link" href="./sobre.html" title="sobre">
 					Sobre o projeto
@@ -33,12 +34,21 @@
 				<a class="nav-link" href="./biblioteca.html" title="sites de livros">
 					Sites de livros
 				</a>
+				<a class="nav-link" href="./ajuda.html" title="Ajuda">
+					Ajuda
+				</a>
 				</div>	
 			</nav>
 		</div>
 
 		<!--container dos links de dominio publico com livros e audio livros nascional e internacional-->
-		<div class="jumbotron jumbotron-fluid">
+    	<div class="jumbotron jumbotron-fluid" id="cabecalho">
+      <div class="container">
+				<h1 id="titulo" class="display-4">Trilhas Literárias de Hortolândia</h1>
+				<!--<p id="titulo" class="lead">Incentivo a leitura e acesso ao livro</p>!-->
+			</div>
+			</div>
+		<div class="jumbotron">
       <div class="container">
 			<h1 id='titulo'>Sites de livros</h1>
 		</div>
@@ -50,7 +60,6 @@
 					<div class="gallery">
   					<a target="_blank" href="http://www.dominiopublico.gov.br/pesquisa/	PesquisaObraForm.jsp">
     					<img src="../images/dominio_publico.png" alt="Domínio público" width="15%" height="10%">
-    					<div class="desc">Domínio público</div>
   					</a>
 					</div>
 				</div>
@@ -58,7 +67,6 @@
 					<div class="gallery">
   					<a target="_blank" href="https://librivox.org/">
     					<img src="../images/librivox-logo.png" alt="Librivox" width="25%" height="10%">
-    					<div class="desc">Librivox</div>
   				</a>
 			</div>
 		</div>
@@ -68,7 +76,6 @@
 			<div class="gallery">
   				<a target="_blank" href="https://www.gutenberg.org/">
     				<img src="../images/projectgutenberg.jpg" alt="Project Gutenberg" width="33%" height="50%">
-    				<div class="desc">Project Gutenberg</div>
   				</a>
 			</div>
 			</div>
@@ -79,7 +86,6 @@
 			<div class="gallery">
   				<a target="_blank" href="https://digital.bbm.usp.br/handle/bbm-ext/1">
     				<img src="../images/logo_bbm.png" alt="Biblioteca Brasiliana" width="33%" height="50%" >
-    				<div class="desc">Biblioteca Brasiliana</div>
   				</a>
   				
 			</div>
@@ -88,7 +94,6 @@
 			<div class="gallery">
   				<a target="_blank" href="http://www.culturaacademica.com.br/">
     				<img src="../images/logo-cultura.png" alt="Cultura Acadêmica" width="33%" height="50%">
-  					<div class="desc">Cultura Acadêmica</div>
   				</a>
 			</div>
 </div>
@@ -96,43 +101,34 @@
 			<div class="gallery">
   				<a target="_blank" href="https://www.literaturabrasileira.ufsc.br/">
     				<img src="../images/bio3.png" alt="Literatura brasileira" width="33%" height="50%">
-  					<div class="desc">Literatura brasileira</div>
   				</a>
 			</div>
 </div>
 </div>			
-		
-		<div>
-			<h3>Links externos</h3>
+		</div>
+		</div>
+			<div class="jumbotron">
+			<h1>Links externos</h1>
 		</div>
 		<div class="container">
 				<footer id="link_externo">	
 				<div class="row">	
 					<div class="col">
 						<figure class="figure-img img-fluid rounded">
-							<a href="http://hto.ifsp.edu.br/portal/" title="site do IFSP campus hortolandia"><img src="../images/logo_ifsp_2016.png" id="simbolo" class="img-fluid" alt="IFSP Hortolândia">
-							<figcaption class="figure-caption text-left">IFSP</figcaption>
-							</a>
+							<a href="http://hto.ifsp.edu.br/portal/" title="site do IFSP campus hortolandia"><img src="../images/logo_ifsp_2016.png" id="simbolo" class="img-fluid" alt="IFSP- Instituto Federal de São Paulo Câmpus Hortolândia"></a>
 						</figure>
 					</div>
 					<div class="col">
 						<figure class="figure-img img-fluid rounded">
-						<a href="http://www2.hortolandia.sp.gov.br/" title="Prefeitura de hortolândia"><img src="../images/600px-Brasao_Hortolandia_SaoPaulo_Brasil_v2.svg.png" id="simbolo" class="img-fluid" alt="">
-						<figcaption class="figure-caption text-left">Prefeitura de Hortolândia</figcaption>
-						</a>
+						<a href="http://www2.hortolandia.sp.gov.br/" title="Prefeitura de hortolândia"><img src="../images/600px-Brasao_Hortolandia_SaoPaulo_Brasil_v2.svg.png" id="simbolo" class="img-fluid" alt="Prefeitura de Hortolândia"></a>
 					</figure>
 					</div>
 				</div>
 						<p>Desenvolvido por Luiz</p>
 				</footer>
-
-    <!-- JavaScript (Opcional) -->
-    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</div>
-</div>
-</div>
-  </body>
+			</div>
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
 </html>

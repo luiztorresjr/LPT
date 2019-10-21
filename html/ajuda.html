@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> 
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> 
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
 
     
 		<title font-weight-bold>Trilhas Literárias de Hortolândia</title>
@@ -22,49 +22,69 @@
 	    		<span class="navbar-toggler-icon"></span>
 	  			</button>
 				<div class="collapse navbar-collapse justify-content-center" id="menu">
-				<a class="nav-link active" href="#titulo_site" title="home">
+				<a class="nav-link active" href="../index.html" title="home">
 					Home
 				</a>
-				<a class="nav-link" href="./html/sobre.html" title="sobre">
+				<a class="nav-link" href="./sobre.html" title="sobre">
 					Sobre o projeto
 				</a>
-				<a class="nav-link" href="./html/instrucao.html" title="instrucao de uso">
+				<a class="nav-link" href="./instrucao.html" title="instrucao de uso">
 					QR Code como usar
 				</a>
-				<a class="nav-link" href="./html/biblioteca.html" title="sites de livros">
+				<a class="nav-link" href="./biblioteca.html" title="sites de livros">
 					Sites de livros
 				</a>
-				<a class="nav-link" href="./html/ajuda.html" title="Ajuda">
+				<a class="nav-link" href="./ajuda.html" title="Ajuda">
 					Ajuda
 				</a>
 				</div>	
 			</nav>
 		</div>
 
-		
-			<div class="jumbotron jumbotron-fluid" id="cabecalho">
+		<!--container dos links de dominio publico com livros e audio livros nascional e internacional-->
+    	<div class="jumbotron jumbotron-fluid" id="cabecalho">
       <div class="container">
 				<h1 id="titulo" class="display-4">Trilhas Literárias de Hortolândia</h1>
 				<!--<p id="titulo" class="lead">Incentivo a leitura e acesso ao livro</p>!-->
 			</div>
 			</div>
-			<div class="container">
-				<section>				
-				<article>
-				Trilhas literárias de Hortolândia é um projeto que tem com objetivo
-			 	atraves de cartazes com Qr code fornecer a população uma biblioteca atraves de seus smartphones e internet móvel para realizar download de livros de Domínio Público.
-			 	<p>Neste site você encontra os sites de onde são tirados os livros e os locais onde poderá encontrar os cartazes.</p>
-
-			</article>
-				<h2>O mapa</h2>			
-				<p>O mapa contem os pontos onde se encontra cartazes QR Code com links de livros</p>
-				<div class="text-justify">
-					<div id="map" class="border rounded"></div>
-				</div>
-				<p>Esse site é um projeto que foi desenvolvido por Luiz Torres Junior para substituir o projeto Trilhas literárias de Hortolândia que era um projeto que tinha como objetivo criar uma maneira de tornar livros de dominio público acessivel a população da cidade de Hortolândia.</p>			
-				</section>
-				
+		<div class="jumbotron">
+      <div class="container">
+			<h1>Ajuda</h1>
+</div>
+</div>
+		<div class="container">
+		<form action="../php/enviar.php" method="post">
+		  <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+				<input type="text" class="form-control" name="nome">
+      </div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">E-mail</label>
+				<input type="email" class="form-control" name="email" placeholder="name@example.com">
 			</div>
+			<div class="form-group">
+				<label for="exampleFormControlTextarea1">Entre com sua dúvida</label>
+				<textarea class="form-control" name="duvida" rows="3"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary" >Enviar</button>	  
+		</form>
+    <br/>
+		</div>
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Perguntas principais</h1>
+			</div>
+		</div>
+		<div>
+			<article>
+				<h3>Como fazer download ?</h3>
+				<p>Para uma facil compreensão abaixo temos um video explicando como usar QR Code</p>
+				<div class="embed-responsive embed-responsive-4by3">
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed//NGLG0DqJmZc?rel=0" allowfullscreen></iframe>
+				</div>
+			</article>
+		</div>
 		<div class="jumbotron">
 			<h1>Links externos</h1>
 		</div>
@@ -85,10 +105,6 @@
 						<p>Desenvolvido por Luiz</p>
 				</footer>
 			</div>
-			<!--build:js js/main.min.js -->
-				<script src="./js/googleMaps.js"></script>
-				<script src="./js/jquery.js"></script>
-			<!-- endbuild -->
 			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
