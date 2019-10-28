@@ -1,12 +1,15 @@
-function initMap() {
-    var latlng = new google.maps.LatLng(-22.862983, -47.204202);
- 
+function initMap() {    
+        var directionsService = new google.maps.DirectionsService();   
+        var directionsRenderer = new google.maps.DirectionsRenderer();
+
+    var latlng = new google.maps.LatLng(-22.862983, -47.204202); 
     var options = {
         zoom: 12,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
+    directionsRenderer.setMap(map);
     var infoWindow = new google.maps.InfoWindow;
 
     downloadUrl('../php/pontos.php', function(data){
@@ -15,7 +18,6 @@ function initMap() {
         Array.prototype.forEach.call(markers, function(markerElement){
             var name = markerElement.getAttribute('name');
             var address = markerElement.getAttribute('address');
-            var type = markerElement.getAttribute('type');
             var point = new google.maps.LatLng(
                 parseFloat(markerElement.getAttribute('lat')),
                 parseFloat(markerElement.getAttribute('lng')));
@@ -28,6 +30,7 @@ function initMap() {
             var text = document.createElement('text');
             text.textContent = address
             infowincontent.appendChild(text);
+            calcularota(marker, map);              
             var marker = new google.maps.Marker({
                 position: point,
                 map: map,
@@ -35,11 +38,74 @@ function initMap() {
             });
             marker.addListener('click', function(){
                 infoWindow.setContent(infowincontent);
-                infoWindow.open(map, marker);
-            });
+                infoWindow.open(map, marker); 
+                calcularota(marker.position);
+            });                        
+        
         });
     });
-   
+    
+}
+
+function calcularota(localiza) {
+           
+    $( "#busca" ).click(function() {
+    if($(this).val() != "")
+    var fim = localiza;
+    var resposta = {
+        origin: carregarNoMapa($("#campo").val()),
+        destination: fim,
+        travelMode: 'DRIVING'          
+    };
+    directionsService.route(resposta, function(result, status){
+            if(status == 'OK'){
+                DirectionsRenderer.setDirections(result);
+            }
+    });
+});
+
+$("#local").click(function(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          endereco = new google.maps.LatLng(pos.lat, pos.lng)
+          console.log(endereco);
+          var fim = localiza;
+          var resposta = {
+              origin: endereco,
+              destination: fim,
+              travelMode: 'DRIVING'
+          };              
+          directionsService.route(resposta, function(result, status){
+                  if(status == 'OK'){
+                      DirectionsRenderer.setDirections(result);
+                  }
+    
+          });
+});
+
+    }
+});    
+
+}
+
+function carregarNoMapa(){
+    var geocoder = new google.maps.Geocoder();
+    $("#campo").autocomplete({
+        source: function (request, response) {
+            geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
+                response($.map(results, function (item) {
+                    return {
+                        latitude: item.geometry.location.lat(),
+                        longitude: item.geometry.location.lng()
+                    }
+                }));
+            })
+        }
+    });
 }
 
 function downloadUrl(url, callback) {
@@ -59,7 +125,8 @@ function downloadUrl(url, callback) {
       }
 
       function doNothing() {}
-    
+ 
+      
 /*
 By https://tableless.com.br/api-google-maps-v3/?utm_source=tablelessRelatedLink
 */
@@ -71,12 +138,9 @@ function loadScript(){
     document.body.appendChild(script);
 }
 
-
-
+    
 /*
 -----------------------------------------------------------------------------------
 */
-function pesquisar(){
-    
-}
-window.onload = loadScript;
+
+window.onload = loadScript()
