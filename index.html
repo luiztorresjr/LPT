@@ -51,14 +51,21 @@
 			<div class="container">
 				<section>				
 				<article>
-				Trilhas literárias de Hortolândia é um projeto que tem com objetivo
-			 	atraves de cartazes com Qr code fornecer a população uma biblioteca atraves de seus smartphones e internet móvel para realizar download de livros de Domínio Público.
+				Trilhas Literárias de Hortolândia é um projeto que tem como objetivo disponibilizar livros de domínio público<br> 
+				atraves de cartazes com Qr code fornecer a população uma biblioteca atraves de seus smartphones e internet<br> móvel para baixar livros.
 			 	<p>Neste site você encontra os sites de onde são tirados os livros e os locais onde poderá encontrar os cartazes.</p>
 
 			</article>
 				<h2>O mapa</h2>			
 				<p>O mapa contem os pontos onde se encontra cartazes QR Code com links de livros</p>
 				<div class="text-justify">
+					<div class="input-group">
+						<input id='campo' type="text" class="form-control" placeholder="Entre com o endereço" aria-label="Campo de endereço mais dois botões a direita primeiro para buscar e o segundo para locarlizar usando geolocalização automatica" aria-describedby="button-addon4">
+							<div class="input-group-append" id="button-addon4">
+							  <button class="btn btn-outline-secondary" type="button" id='busca'>Buscar</button>
+							  <button class="btn btn-outline-secondary" type="button" id='local'>Utilizar minha localização</button>
+							</div>
+					</div>			  
 					<div id="map" class="border rounded"></div>
 				</div>
 				<p>Esse site é um projeto que foi desenvolvido por Luiz Torres Junior para substituir o projeto Trilhas literárias de Hortolândia que era um projeto que tinha como objetivo criar uma maneira de tornar livros de dominio público acessivel a população da cidade de Hortolândia.</p>			

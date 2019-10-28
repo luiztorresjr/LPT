@@ -53,38 +53,67 @@
 			<h1>Ajuda</h1>
 </div>
 </div>
-		<div class="container">
-		<form action="../php/enviar.php" method="post">
-		  <div class="form-group">
-        <label for="exampleFormControlInput1">Name</label>
-				<input type="text" class="form-control" name="nome">
-      </div>
-			<div class="form-group">
-				<label for="exampleFormControlInput1">E-mail</label>
-				<input type="email" class="form-control" name="email" placeholder="name@example.com">
+<p>Clique nas perguntas a baixo para expandir as respostas</p>
+		<div class="accordion" id="colapsar">
+			<div class="card">
+			  <div class="card-header" id="headingOne">
+				<h2 class="mb-0">
+				  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#pergunta1" aria-expanded="true" aria-controls="collapseOne">
+					<h3>O que é e como usar QR Code para fazer download ?</h3>
+				  </button>
+				</h2>
+				<p>Para uma facil compreensão abaixo temos um video explicando como usar QR Code </p>
+			  	</div>		
+			  <div>
+			  <div id="pergunta1" class="collapse" aria-labelledby="headingOne" data-parent="#colapsar">
+						<div class="card-body">
+								<article >
+							
+										<div class="embed-responsive embed-responsive-4by3">	
+												<iframe class="embed-responsive-item" src="https://www.youtube.com/embed//NGLG0DqJmZc?rel=0" allowfullscreen></iframe>
+										</div>
+									</article>
+						</div>
+					  </div>
+					</div>
 			</div>
-			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Entre com sua dúvida</label>
-				<textarea class="form-control" name="duvida" rows="3"></textarea>
-			</div>
-			<button type="submit" class="btn btn-primary" >Enviar</button>	  
-		</form>
-    <br/>
+			<div class="card">
+					<div class="card-header" id="headingDois">
+					  <h2 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#pergunta2" aria-expanded="true" aria-controls="collapseOne">
+						  <h3>Como posso pedir um cartaz ou um livro de domíno ?</h3>
+						</button>
+					  </h2>
+					  <p>Envie nos suas dúvidas e também caso queira um cartaz para colocar perto do seu estabelecimento ou casa</p>
+						</div>		
+					<div>
+					<div id="pergunta2" class="collapse" aria-labelledby="ComoPedir" data-parent="#colapsar">
+							  <div class="card-body">
+									<div class="container">
+											<form action="../php/enviar.php" method="post">
+											  <div class="form-group">
+											<label for="exampleFormControlInput1">Name</label>
+													<input type="text" class="form-control" name="nome">
+										  </div>
+												<div class="form-group">
+													<label for="exampleFormControlInput1">E-mail</label>
+													<input type="email" class="form-control" name="email" placeholder="name@example.com">
+												</div>
+												<div class="form-group">
+													<label for="exampleFormControlTextarea1">Entre com sua dúvida</label>
+													<textarea class="form-control" name="duvida" rows="3"></textarea>
+												</div>
+												<button type="submit" class="btn btn-primary" >Enviar</button>	  
+											</form>
+										<br/>
+											</div>
+																  
+							  </div>
+							</div>
+						  </div>
+				  </div>
 		</div>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Perguntas principais</h1>
-			</div>
-		</div>
-		<div>
-			<article>
-				<h3>Como fazer download ?</h3>
-				<p>Para uma facil compreensão abaixo temos um video explicando como usar QR Code</p>
-				<div class="embed-responsive embed-responsive-4by3">
-						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed//NGLG0DqJmZc?rel=0" allowfullscreen></iframe>
-				</div>
-			</article>
-		</div>
+		
 		<div class="jumbotron">
 			<h1>Links externos</h1>
 		</div>
