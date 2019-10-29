@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 function initMap() {    
         
         var directionsRenderer = new google.maps.DirectionsRenderer();
 
     var latlng = new google.maps.LatLng(-22.862983, -47.204202); 
+=======
+function initMap() {
+    var directionsRenderer = new google.maps.DirectionsRenderer();
+    var latlng = new google.maps.LatLng(-22.862983, -47.204202);
+ 
+>>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
     var options = {
         zoom: 12,
         center: latlng,
@@ -29,7 +36,12 @@ function initMap() {
             var markerImage = '../images/map_icon.png';
             var text = document.createElement('text');
             text.textContent = address
+<<<<<<< HEAD
             infowincontent.appendChild(text);          
+=======
+            infowincontent.appendChild(text);
+            calcularota(marker, map);              
+>>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
             var marker = new google.maps.Marker({
                 position: point,
                 map: map,
@@ -38,6 +50,7 @@ function initMap() {
             
             marker.addListener('click', function(){
                 infoWindow.setContent(infowincontent);
+<<<<<<< HEAD
                 infoWindow.open(map, marker); 
                 calcularota(marker.position, map); 
             });                        
@@ -45,6 +58,74 @@ function initMap() {
         });
     });
     
+=======
+                infoWindow.open(map, marker);    
+            });                        
+        
+        });
+    });
+    var directionsService = new google.maps.DirectionsService();
+    function calcularota() {
+
+    $( "#busca" ).click(function() {
+        if($(this).val() != "")
+            var endereco = carregarNoMapa($("#campo").val());
+            console.log(endereco);
+        var fim = marker
+        var resposta = {
+            origin: endereco,
+            destination: fim,
+            travelMode: 'Walking'
+        };
+        directionsService.route(resposta, function(result, status){
+                if(status == 'OK'){
+                    DirectionsRenderer.setDirections(result);
+                }
+        });
+    });
+    
+    $("#local").click(function(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              endereco = new google.maps.LatLng(pos.lat, pos.lng)
+              var fim = marker
+              var resposta = {
+                  origin: endereco,
+                  destination: fim,
+                  travelMode: 'Walking'
+              };
+              
+              directionsService.route(resposta, function(result, status){
+                      if(status == 'OK'){
+                          DirectionsRenderer.setDirections(result);
+                      }
+        
+              });
+    });
+
+        }
+    });    }
+    
+}
+function carregarNoMapa(){
+    var geocoder = new google.maps.Geocoder();
+    $("#campo").autocomplete({
+        source: function (request, response) {
+            geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
+                response($.map(results, function (item) {
+                    return {
+                        latitude: item.geometry.location.lat(),
+                        longitude: item.geometry.location.lng()
+                    }
+                }));
+            })
+        }
+    });
+>>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
 }
 
 function calcularota(localiza, map) {

@@ -1,6 +1,10 @@
 # LPT
 projeto para para substituir o trilhas literárias de Hortolândia
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
 |RESOLVIDO|TELA|PROBLEMA IDENTIFIFCADO|HEURISTICA VIOLADA|
 | ------------- |:-------------:| -----:|----:|
 |[x] |MENU|	O menu está com uma cor que não permite	um destaque podendo	confundir o usuário	|Consistência e padrão|			

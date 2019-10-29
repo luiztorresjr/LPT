@@ -1,5 +1,8 @@
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
 html, body 
 {
     height: 100%;
@@ -102,6 +105,7 @@ div.desc {
   text-decoration: blue;
   padding: 0 10px;
   margin: 0 10px;
+<<<<<<< HEAD
 }
 .pac-card {
   margin: 10px 10px 0 0;
@@ -144,3 +148,6 @@ div.desc {
 #campo:focus {
   border-color: #4d90fe;
 }
+=======
+}
+>>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
