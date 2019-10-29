@@ -1,5 +1,5 @@
 function initMap() {    
-        var directionsService = new google.maps.DirectionsService();   
+        
         var directionsRenderer = new google.maps.DirectionsRenderer();
 
     var latlng = new google.maps.LatLng(-22.862983, -47.204202); 
@@ -29,85 +29,83 @@ function initMap() {
             var markerImage = '../images/map_icon.png';
             var text = document.createElement('text');
             text.textContent = address
-            infowincontent.appendChild(text);
-            calcularota(marker, map);              
+            infowincontent.appendChild(text);          
             var marker = new google.maps.Marker({
                 position: point,
                 map: map,
                 icon: markerImage
             });
+            
             marker.addListener('click', function(){
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker); 
-                calcularota(marker.position);
+                calcularota(marker.position, map); 
             });                        
-        
+                   
         });
     });
     
 }
 
-function calcularota(localiza) {
-           
+function calcularota(localiza, map) {
+    var input = $("#campo").val();
+    var endereco = new google.maps.places.SearchBox(input);
+    var directionsService = new google.maps.DirectionsService();   
     $( "#busca" ).click(function() {
     if($(this).val() != "")
     var fim = localiza;
     var resposta = {
-        origin: carregarNoMapa($("#campo").val()),
+        origin: endereco,
         destination: fim,
-        travelMode: 'DRIVING'          
+        travelMode: 'DRIVING',
+        unitSystem: google.maps.UnitSystem.METRIC
     };
-    directionsService.route(resposta, function(result, status){
-            if(status == 'OK'){
-                DirectionsRenderer.setDirections(result);
-            }
-    });
+    directionsService.route(resposta, function(response, status){
+          if (status == google.maps.DirectionsStatus.OK)
+          {
+            new google.maps.DirectionsRenderer({
+              map: map,
+              directions: response
+            });
+          }
+          else
+            $("#error").append("Unable to retrieve your route<br />");
+        });
 });
 
 $("#local").click(function(){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-          endereco = new google.maps.LatLng(pos.lat, pos.lng)
+          endereco =  new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
           console.log(endereco);
           var fim = localiza;
           var resposta = {
               origin: endereco,
               destination: fim,
-              travelMode: 'DRIVING'
+              travelMode: 'DRIVING',
+              unitSystem: google.maps.UnitSystem.METRIC
           };              
-          directionsService.route(resposta, function(result, status){
-                  if(status == 'OK'){
-                      DirectionsRenderer.setDirections(result);
-                  }
-    
-          });
+          directionsService.route(
+            resposta,
+            function(response, status)
+            {
+              if (status == google.maps.DirectionsStatus.OK)
+              {
+                new google.maps.DirectionsRenderer({
+                  map: map,
+                  directions: response
+                });
+              }
+              else
+                $("#error").append("Unable to retrieve your route<br />");
+            }
+          );
 });
 
     }
 });    
 
 }
-
-function carregarNoMapa(){
-    var geocoder = new google.maps.Geocoder();
-    $("#campo").autocomplete({
-        source: function (request, response) {
-            geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
-                response($.map(results, function (item) {
-                    return {
-                        latitude: item.geometry.location.lat(),
-                        longitude: item.geometry.location.lng()
-                    }
-                }));
-            })
-        }
-    });
-}
-
 function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
             new ActiveXObject('Microsoft.XMLHTTP') :
