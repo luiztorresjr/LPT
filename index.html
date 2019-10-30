@@ -59,10 +59,12 @@
 				<p>O mapa contem os pontos onde se encontra cartazes QR Code com links de livros</p>
 				<div class="text-justify">
 					<div class="input-group">
-						<input id='campo' type="text" class="form-control" placeholder="Entre com o endereço" aria-label="Campo de endereço mais dois botões a direita primeiro para buscar e o segundo para locarlizar usando geolocalização automatica" aria-describedby="button-addon4">
+						<input id='campo' type="text" class="form-control" placeholder="Entre com o endereço" aria-label="Campo de endereço mais dois botões a direita primeiro para buscar e o segundo para locarlizar usando geolocalização automatica" aria-describedby="button-addon4" onfocus="carregarNoMapa()">
 							<div class="input-group-append" id="button-addon4">
 							  <button class="btn btn-outline-secondary" type="button" id='busca'>Buscar</button>
 							  <button class="btn btn-outline-secondary" type="button" id='local'>Utilizar minha localização</button>
+							  <input id="latitude" type="hidden" name="latitude">
+							  <input id="longitude" type="hidden" name="longitude">
 							</div>
 					</div>			  
 					<div id="map" class="border rounded"></div>

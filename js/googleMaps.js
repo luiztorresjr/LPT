@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 function initMap() {    
-        
-        var directionsRenderer = new google.maps.DirectionsRenderer();
-
-    var latlng = new google.maps.LatLng(-22.862983, -47.204202); 
-=======
-function initMap() {
     var directionsRenderer = new google.maps.DirectionsRenderer();
-    var latlng = new google.maps.LatLng(-22.862983, -47.204202);
- 
->>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
+    var latlng = new google.maps.LatLng(-22.862983, -47.204202); 
     var options = {
         zoom: 12,
         center: latlng,
@@ -36,12 +27,7 @@ function initMap() {
             var markerImage = '../images/map_icon.png';
             var text = document.createElement('text');
             text.textContent = address
-<<<<<<< HEAD
             infowincontent.appendChild(text);          
-=======
-            infowincontent.appendChild(text);
-            calcularota(marker, map);              
->>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
             var marker = new google.maps.Marker({
                 position: point,
                 map: map,
@@ -50,97 +36,59 @@ function initMap() {
             
             marker.addListener('click', function(){
                 infoWindow.setContent(infowincontent);
-<<<<<<< HEAD
                 infoWindow.open(map, marker); 
                 calcularota(marker.position, map); 
             });                        
                    
         });
     });
-    
-=======
-                infoWindow.open(map, marker);    
-            });                        
         
-        });
-    });
-    var directionsService = new google.maps.DirectionsService();
-    function calcularota() {
-
-    $( "#busca" ).click(function() {
-        if($(this).val() != "")
-            var endereco = carregarNoMapa($("#campo").val());
-            console.log(endereco);
-        var fim = marker
-        var resposta = {
-            origin: endereco,
-            destination: fim,
-            travelMode: 'Walking'
-        };
-        directionsService.route(resposta, function(result, status){
-                if(status == 'OK'){
-                    DirectionsRenderer.setDirections(result);
-                }
-        });
-    });
-    
-    $("#local").click(function(){
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-              var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-              };
-              endereco = new google.maps.LatLng(pos.lat, pos.lng)
-              var fim = marker
-              var resposta = {
-                  origin: endereco,
-                  destination: fim,
-                  travelMode: 'Walking'
-              };
-              
-              directionsService.route(resposta, function(result, status){
-                      if(status == 'OK'){
-                          DirectionsRenderer.setDirections(result);
-                      }
-        
-              });
-    });
-
-        }
-    });    }
-    
 }
+var placeSearch, autocomplete;
+
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name'
+};
+
+
 function carregarNoMapa(){
-    var geocoder = new google.maps.Geocoder();
-    $("#campo").autocomplete({
-        source: function (request, response) {
-            geocoder.geocode({ 'address': request.term + ', Brasil', 'region': 'BR' }, function (results, status) {
-                response($.map(results, function (item) {
-                    return {
-                        latitude: item.geometry.location.lat(),
-                        longitude: item.geometry.location.lng()
-                    }
-                }));
-            })
-        }
-    });
->>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
+    var autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById('campo')),
+        {types: ['geocode']});
+        autocomplete.setFields(['address_component']);
+        autocomplete.addListener('place_changed', addlatlong);
+}
+
+function addlatlong() {
+
+var place = autocomplete.getPlace();
+
+var latitude = place.geometry.location.lat();
+var longitude = place.geometry.location.lng();
+
+document.getElementById("latitude").value = latitude;
+document.getElementById("longitude").value = longitude;
 }
 
 function calcularota(localiza, map) {
-    var input = $("#campo").val();
-    var endereco = new google.maps.places.SearchBox(input);
     var directionsService = new google.maps.DirectionsService();   
     $( "#busca" ).click(function() {
-    if($(this).val() != "")
-    var fim = localiza;
-    var resposta = {
+    if($(this).val() != ""){
+        var endereco = new google.maps.LatLng($('#latitude').val(),$('#longitude').val())
+        console.log(endereco);
+        var fim = localiza;
+        var resposta = {
         origin: endereco,
         destination: fim,
         travelMode: 'DRIVING',
         unitSystem: google.maps.UnitSystem.METRIC
     };
+    }        
     directionsService.route(resposta, function(response, status){
           if (status == google.maps.DirectionsStatus.OK)
           {
@@ -185,7 +133,6 @@ $("#local").click(function(){
 
     }
 });    
-
 }
 function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
@@ -213,7 +160,7 @@ function loadScript(){
 
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMLIjPd7Zzcs33jQO1XdGL0-PDXjir8M&callback=initMap';
+    script.src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMLIjPd7Zzcs33jQO1XdGL0-PDXjir8M&libraries=places&callback=initMap';
     document.body.appendChild(script);
 }
 
