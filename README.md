@@ -1,10 +1,6 @@
 # LPT
 projeto para para substituir o trilhas literárias de Hortolândia
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> c28f779c9394b6722e328baf9a8f0473445cc960
 |RESOLVIDO|TELA|PROBLEMA IDENTIFIFCADO|HEURISTICA VIOLADA|
 | ------------- |:-------------:| -----:|----:|
 |[x] |MENU|	O menu está com uma cor que não permite	um destaque podendo	confundir o usuário	|Consistência e padrão|			
@@ -21,4 +17,4 @@ projeto para para substituir o trilhas literárias de Hortolândia
 |[x] |Sobre o projeto/ QR Code como usar/ Sites de livros/ Links externos|Fundo do título só com plano cinza|Estética e design minimalista
 |[x] |Sites de livros |Ao clicar na imagem abre o link da página selecionada, mas sem a necessidade de ter algo escrito embaixo das imagens|Consistência e padrões|
 |[x] |Sistema|Formatação dos textos, imagens e outros conteúdos|Estética e design minimalista|
->>>>>>> c6f8b672b79f38de207191837c41b2e8bc7fa381
+
