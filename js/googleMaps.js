@@ -52,7 +52,7 @@ var componentForm = {
   locality: 'long_name',
   administrative_area_level_1: 'short_name',
   country: 'long_name',
-  postal_code: 'short_name'
+  postal_code: 'short_name',
 };
 
 
@@ -60,26 +60,23 @@ function carregarNoMapa(){
     var autocomplete = new google.maps.places.Autocomplete(
         (document.getElementById('campo')),
         {types: ['geocode']});
-        autocomplete.setFields(['address_component']);
-        autocomplete.addListener('place_changed', addlatlong);
+        autocomplete.setFields(['geometry']);
+        autocomplete.addListener('place_changed', function addlatlong() {
+          var place = autocomplete.getPlace();
+
+          var lat = place.geometry.location.lat(),
+              lng = place.geometry.location.lng();          
+          console.log(lat);
+          console.log(lng);
+          
+        completePos(lat, lng);
+      });
 }
-
-function addlatlong() {
-
-var place = autocomplete.getPlace();
-
-var latitude = place.geometry.location.lat();
-var longitude = place.geometry.location.lng();
-
-document.getElementById("latitude").value = latitude;
-document.getElementById("longitude").value = longitude;
-}
-
 function calcularota(localiza, map) {
     var directionsService = new google.maps.DirectionsService();   
     $( "#busca" ).click(function() {
-    if($(this).val() != ""){
-        var endereco = new google.maps.LatLng($('#latitude').val(),$('#longitude').val())
+    if($("#campo").val() != ""){
+        var endereco = new google.maps.LatLng($("#latitude").val(), $("#longitude").val());
         console.log(endereco);
         var fim = localiza;
         var resposta = {
@@ -160,7 +157,7 @@ function loadScript(){
 
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMLIjPd7Zzcs33jQO1XdGL0-PDXjir8M&libraries=places&callback=initMap';
+    script.src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAIMLIjPd7Zzcs33jQO1XdGL0-PDXjir8M&libraries=places,geometry&callback=initMap';
     document.body.appendChild(script);
 }
 
@@ -168,5 +165,9 @@ function loadScript(){
 /*
 -----------------------------------------------------------------------------------
 */
+function completePos(lat, lng) {
+  $('#latitude').val(lat);
+  $('#longitude').val(lng);
+}
 
 window.onload = loadScript()
