@@ -63,18 +63,17 @@ function carregarNoMapa(){
         autocomplete.setFields(['geometry']);
         autocomplete.addListener('place_changed', function addlatlong() {
           var place = autocomplete.getPlace();
-
           var lat = place.geometry.location.lat(),
-              lng = place.geometry.location.lng();          
-          console.log(lat);
-          console.log(lng);
-          
+              lng = place.geometry.location.lng();                  
         completePos(lat, lng);
       });
 }
 function calcularota(localiza, map) {
     var directionsService = new google.maps.DirectionsService();   
+    var rota = new google.maps.DirectionsRenderer()
+    
     $( "#busca" ).click(function() {
+      rota.set('directions', null);
     if($("#campo").val() != ""){
         var endereco = new google.maps.LatLng($("#latitude").val(), $("#longitude").val());
         console.log(endereco);
@@ -82,14 +81,14 @@ function calcularota(localiza, map) {
         var resposta = {
         origin: endereco,
         destination: fim,
-        travelMode: 'DRIVING',
+        travelMode: 'WALKING',
         unitSystem: google.maps.UnitSystem.METRIC
     };
     }        
     directionsService.route(resposta, function(response, status){
           if (status == google.maps.DirectionsStatus.OK)
           {
-            new google.maps.DirectionsRenderer({
+            rota({
               map: map,
               directions: response
             });
@@ -100,6 +99,7 @@ function calcularota(localiza, map) {
 });
 
 $("#local").click(function(){
+  rota.set('directions', null);
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           endereco =  new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
@@ -108,7 +108,7 @@ $("#local").click(function(){
           var resposta = {
               origin: endereco,
               destination: fim,
-              travelMode: 'DRIVING',
+              travelMode: 'WALKING',
               unitSystem: google.maps.UnitSystem.METRIC
           };              
           directionsService.route(
@@ -117,7 +117,7 @@ $("#local").click(function(){
             {
               if (status == google.maps.DirectionsStatus.OK)
               {
-                new google.maps.DirectionsRenderer({
+                rota({
                   map: map,
                   directions: response
                 });
